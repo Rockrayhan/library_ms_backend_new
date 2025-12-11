@@ -15,7 +15,7 @@ app.post("/payment/webhook", express_1.default.raw({ type: "application/json" })
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
 app.use((0, cors_1.default)({
-    origin: ["http://localhost:3000", "https://next-portfolio-frontend-pi.vercel.app"],
+    origin: ["http://localhost:3000", "https://lms-nextjs-frontend.vercel.app"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
