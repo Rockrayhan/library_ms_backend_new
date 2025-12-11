@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://next-portfolio-frontend-pi.vercel.app"],
+    origin: ["http://localhost:3000", "https://lms-nextjs-frontend.vercel.app"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
