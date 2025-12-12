@@ -12,24 +12,31 @@ const app: Application = express();
 app.post("/payment/webhook", express.raw({ type: "application/json" }), handleWebhook);
 
 
+
+app.use(cookieParser());
+app.use(express.json());
+
+
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000", "https://lms-nextjs-frontend.vercel.app"],
+//     methods: ["GET", "POST", "PATCH", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
+//     exposedHeaders: ['Set-Cookie'],
+//     credentials: true,
+//   })
+// );
+
+
 app.use(
   cors({
     origin: ["http://localhost:3000", "https://lms-nextjs-frontend.vercel.app"],
-    methods: ["GET", "POST", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
-    exposedHeaders: ['Set-Cookie'],
     credentials: true,
   })
 );
 
 
 
-
-
-
-
-app.use(cookieParser());
-app.use(express.json());
 
 
 
