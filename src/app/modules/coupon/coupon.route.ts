@@ -13,4 +13,8 @@ router.post("/create", CouponController.create);
 // router.post("/validate", checkAuth("user"), CouponController.validate);
 router.post("/validate", CouponController.validate);
 
+router.get("/", CouponController.getAll); 
+router.patch("/status/:id", CouponController.updateStatus); // update active/inactive
+router.delete("/:id", CouponController.delete); // delete coupon
+
 export const CouponRoutes = router;
