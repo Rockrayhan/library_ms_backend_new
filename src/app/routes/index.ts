@@ -5,7 +5,7 @@ import { subscriptionRouter } from "../modules/subscription/subscription.route";
 import { AuthRoutes } from "../modules/auth/auth.route";
 import { borrowRouter } from "../modules/borrow/borrow.route";
 import { PaymentRoutes } from "../modules/payment/payment.route";
-
+import { CouponRoutes } from "../modules/coupon/coupon.route";
 
 export const router = Router();
 
@@ -33,6 +33,10 @@ const moduleRoutes = [
   {
     path: "/payment",
     route: PaymentRoutes,
+  },
+  {
+    path: "/coupon",
+    route: CouponRoutes,
   },
 ];
 
