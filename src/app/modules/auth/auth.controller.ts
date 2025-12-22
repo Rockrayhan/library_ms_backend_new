@@ -22,10 +22,8 @@ import { User } from "../user/user.model";
 //   }
 // );
 
-
 const credentialsLogin = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-
     // Required for cross-site cookies
     res.setHeader("Access-Control-Allow-Credentials", "true");
     res.setHeader(
@@ -48,18 +46,21 @@ const credentialsLogin = catchAsync(
   }
 );
 
-
 const logout = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     res.clearCookie("accessToken", {
       httpOnly: true,
-      secure: envVars.NODE_ENV === "production", // true on vercel
-      sameSite: envVars.NODE_ENV === "production" ? "none" : "lax",
+      // secure: envVars.NODE_ENV === "production",
+      // sameSite: envVars.NODE_ENV === "production" ? "none" : "lax",
+      secure: true,
+      sameSite: "none",
     });
     res.clearCookie("refreshToken", {
       httpOnly: true,
-      secure: envVars.NODE_ENV === "production",
-      sameSite: envVars.NODE_ENV === "production" ? "none" : "lax",
+      // secure: envVars.NODE_ENV === "production",
+      // sameSite: envVars.NODE_ENV === "production" ? "none" : "lax",
+      secure: true,
+      sameSite: "none",
     });
 
     sendResponse(res, {
@@ -70,19 +71,6 @@ const logout = catchAsync(
     });
   }
 );
-
-// export const AuthController = {
-//   me: catchAsync(async (req, res) => {
-//     const user = await User.findById(req.user.userId).select("-password");
-
-//     sendResponse(res, {
-//       statusCode: 200,
-//       success: true,
-//       message: "User fetched successfully",
-//       data: user,
-//     });
-//   }),
-// };
 
 export const AuthControllers = {
   credentialsLogin,
